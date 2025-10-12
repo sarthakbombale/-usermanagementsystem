@@ -1,0 +1,52 @@
+/* === Table Header Light/Dark === */
+.table-header-dark {
+  background-color: #05283a; /* original deep navy for light theme */
+  color: #fff;
+}
+
+body.dark .table-header-dark {
+  background-color: #343a40; /* dark header for dark theme */
+  color: #e0e0e0;
+}
+
+.table-header-dark th {
+  vertical-align: middle;
+  border-color: rgba(0,0,0,0.05);
+}
+
+/* === Avatar Styles === */
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #e9eef1; /* light bg */
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+body.dark .avatar {
+  background: #495057; /* darker bg for dark mode */
+  color: #e0e0e0;
+}
+
+/* === Table Card === */
+.table-card {
+  background: #fff;
+  border-radius: 6px;
+  padding: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+
+body.dark .table-card {
+  background: #212529;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* === Smooth Transitions for Theme Changes === */
+body, .table-card, .table-header-dark, .avatar {
+  transition: all 0.3s ease;
+}
