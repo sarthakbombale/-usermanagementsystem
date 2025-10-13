@@ -1,20 +1,21 @@
 import React from "react";
-import { Row, Col, Form } from "react-bootstrap";
+import { Row, Col, Form, Button } from "react-bootstrap";
 import { FiSearch, FiCalendar } from "react-icons/fi";
 import { FaUserShield, FaUser, FaUserCog, FaUserAlt } from "react-icons/fa";
 import { MdCheckCircle, MdCancel, MdPendingActions, MdBlock } from "react-icons/md";
 import Select, { components } from "react-select";
 
-// Role options with icons
+// Role and Status options with icons
 const roleOptions = [
+  { value: "", label: "All Roles" }, // Added "All Roles"
   { value: "Admin", label: "Admin", icon: <FaUserShield /> },
   { value: "User", label: "User", icon: <FaUser /> },
   { value: "Moderator", label: "Moderator", icon: <FaUserCog /> },
   { value: "Guest", label: "Guest", icon: <FaUserAlt /> },
 ];
 
-// Status options with icons
 const statusOptions = [
+  { value: "", label: "All Status" }, // Added "All Status"
   { value: "Active", label: "Active", icon: <MdCheckCircle color="green" /> },
   { value: "Inactive", label: "Inactive", icon: <MdCancel color="gray" /> },
   { value: "Banned", label: "Banned", icon: <MdBlock color="red" /> },
@@ -79,6 +80,14 @@ export default function Filters({
     }),
   };
 
+  // Function to reset all filters
+  const clearFilters = () => {
+    setSearch("");
+    setFilterRole("");
+    setFilterStatus("");
+    setFilterDate("");
+  };
+
   return (
     <div className="mb-3">
       <Row className="g-2">
@@ -109,7 +118,7 @@ export default function Filters({
         </Col>
 
         {/* Role select */}
-        <Col md={3}>
+        <Col md={2}>
           <Select
             options={roleOptions}
             value={roleOptions.find((r) => r.value === filterRole)}
@@ -121,7 +130,7 @@ export default function Filters({
         </Col>
 
         {/* Status select */}
-        <Col md={3}>
+        <Col md={2}>
           <Select
             options={statusOptions}
             value={statusOptions.find((s) => s.value === filterStatus)}
@@ -156,6 +165,13 @@ export default function Filters({
               }}
             />
           </div>
+        </Col>
+
+        {/* Clear Filters button */}
+        <Col md={2}>
+          <Button variant="secondary" onClick={clearFilters} style={{ width: "100%" }}>
+            Clear Filters
+          </Button>
         </Col>
       </Row>
     </div>
