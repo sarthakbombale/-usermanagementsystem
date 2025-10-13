@@ -1,16 +1,85 @@
-# React + Vite
+🧑‍💼 User Management Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive User Management Dashboard built with React, featuring full CRUD operations, live filtering, pagination, and support for dark/light themes. Designed for scalability, clean UI, and ease of integration with APIs.
 
-Currently, two official plugins are available:
+🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+User CRUD Management – Add, edit, and delete users with instant UI updates.
 
-## React Compiler
+Bulk Delete – Select multiple users and remove them in one click.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Advanced Filtering & Search – Filter by role, status, or keyword in real time.
 
-## Expanding the ESLint configuration
+Pagination – Client-side pagination for large user lists.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Light/Dark Mode – Toggle seamlessly between light and dark themes.
+
+Responsive Design – Fully optimized for desktop, tablet, and mobile.
+
+Toast Notifications – User-friendly feedback for all actions.
+
+🛠️ Tech Stack
+Category	Technology
+Frontend	React 18+, React-Bootstrap, Lucide Icons
+Styling	CSS3 (custom + Bootstrap), Light/Dark Theme
+Notifications	React-Toastify
+API Layer	Axios-based service (CRUD-ready)
+Build Tool	Vite / Create React App (depending on setup)
+
+Project STructure
+src/
+├── components/
+│   ├── UserTable.jsx        # Displays users with multi-delete
+│   ├── UserForm.jsx         # Add/Edit user modal
+│   ├── Filters.jsx          # Search, role, and status filters
+│   └── Pagination.jsx       # Custom pagination component
+│
+├── services/
+│   └── api.js               # API methods (getUsers, addUser, etc.)
+│
+├── App.jsx                  # Main app logic
+├── style.css                # Theme and UI styling
+
+
+
+
+
+🌗 Dark / Light Theme
+
+You can toggle between Dark 🌑 and Light ☀️ modes using the theme button in the top-right corner of the dashboard.
+All elements (text, tables, forms, and modals) automatically adapt to the selected theme.
+
+🧩 API Integration
+
+You can connect this dashboard to your backend API by updating src/services/api.js.
+Each API call is structured like this:
+
+export const getUsers = () => axios.get("/api/users");
+export const addUser = (data) => axios.post("/api/users", data);
+export const updateUser = (id, data) => axios.put(`/api/users/${id}`, data);
+export const deleteUser = (id) => axios.delete(`/api/users/${id}`);
+
+
+Simply replace the endpoint URLs with your backend API routes.
+
+🧹 Available Scripts
+Command	Description
+npm run dev	Start development server
+npm run build	Build for production
+npm run preview	Preview production build
+npm run lint	Run linter checks
+💅 Design Guidelines
+
+Primary Color: #0d6efd (Bootstrap primary)
+
+Dark Background: #212529
+
+Light Background: #f8f9fa
+
+Font: System UI / Inter / Roboto
+
+
+
+Thank You
+
+└── main.jsx                 # React entry point
